@@ -1,0 +1,53 @@
+extends ../layouts/websiteLayout
+block content
+    //- myTitle = 'Home'
+    //- Start Search Panel
+    .search-panel.panel.panel-default.mb-5
+        .panel-body.bg-light.py-5
+            .container
+                h2.h1 Products  
+                .panel.panel-default
+                    .panel-body.mt-4.px-3.py-4.d-flex.bg-white.shadow-sm.rounded
+                        //- Search Product
+                        .input-group.mx-2
+                            span#basic-addon1.input-group-text #[ion-icon(name='search')]
+                            input#search.form-control-lg.form-control(placeholder='Search Product')
+
+                        //- نوع الطلب
+                        .input-group.mx-2
+                            span#basic-addon1.input-group-text #[ion-icon(name='documents')]
+                            select.form-select.select-category.form-select-lg.text-capitalize
+                                option(value='' disabled='' selected='') All Categories
+                        //-
+                        .input-group.mx-2
+                            span#basic-addon1.input-group-text #[ion-icon(name='documents')]
+                            select.form-select.select-brands.form-select-lg.text-capitalize
+                                option(value='' disabled='' selected='') All Brands
+
+                        //- Submit Button
+                        button.btn.btn-primary.d-flex.align-items-center.mx-2(onclick='searchProduct()')
+                            ion-icon(name='search')
+                            span.mx-2 Search
+
+                        //- Clear Button
+                        button.d-none.clear-search.btn.btn-outline-primary.d-flex.align-items-center.mx-2(onclick='getProducts()')
+                            ion-icon(name='close')
+                            span Clear
+
+    //- Start Main Content 
+    section
+        .container
+            .panel.panel-default
+                .panel-body
+                    table.products-table.table.m-0.mb-5.shadow.rounded.bg-light
+                        thead.bg-white
+                            tr
+                                th(style='width: 50px;') #
+                                //- Start Table Header
+                                each val,index in ["Product", "Category", "Brand", "Price", "Rating","Action"]
+                                    th(class=`${index == 0 ? '':'text-center'}`) #[b= val]
+
+                        tbody
+            .buttons-group
+                button.btn.btn-default.mx-2(onclick="prevPage()") Prev
+                button.btn.btn-primary.mx-2(onclick="nextPage()") Next

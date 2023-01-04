@@ -1,0 +1,142 @@
+-
+    var sidebarMenu = [
+    {
+        name: 'Dashboard',
+        icon: 'fas fa-tachometer-alt',
+        link: `${adminPath}`,
+        active: true ,
+        children:[]
+
+    },
+    {
+        name: 'Products',
+        icon: 'fas fa-boxes',
+        link: `${adminPath}/products`,
+        active: true,
+        children: [
+            {
+                name: 'All Products',
+                link: `${adminPath}/products`
+            },
+            {
+                name: 'Add Product',
+                link: `${adminPath}/products/add`
+            },
+            {
+                name: 'Categories',
+                link: `${adminPath}/products/categories`
+            },
+            {
+                name: 'Brands',
+                link: `${adminPath}/products/brands`
+            }
+        ]
+    },
+    {
+        name: 'Categories',
+        icon: 'fas fa-list',
+        link: `${adminPath}/categories`,
+        active: false,
+        children:[]
+    },
+    {
+        name: 'Orders',
+        icon: 'fas fa-shopping-cart',
+        link: `${adminPath}/orders`,
+        active: false,
+        children: [
+            {
+                name: 'All Orders',
+                link: `${adminPath}/orders`
+            },
+            {
+                name: 'Add Order',
+                link: `${adminPath}/orders/add`
+            },
+            {
+                name: 'Statuses',
+                link: `${adminPath}/orders/statuses`
+            }
+        ]
+    },
+    {
+        name: 'Posts',
+        icon: 'fas fa-newspaper',
+        link: `${adminPath}/posts`,
+        active: false,
+        children: [
+            {
+                name: 'All Posts',
+                link: `${adminPath}/posts`
+            },
+            {
+                name: 'Add Post',
+                link: `${adminPath}/posts/add`
+            },
+            {
+                name: 'Categories',
+                link: `${adminPath}/posts/categories`
+            }
+        ]
+    },
+    {
+        name: 'Users',
+        icon: 'fas fa-users',
+        link: `${adminPath}/users`,
+        active: false,
+        children: [
+            {
+                name: 'All Users',
+                link: `${adminPath}/users`
+            },
+            {
+                name: 'Add User',
+                link: `${adminPath}/users/add`
+            },
+            {
+                name: 'Roles',
+                link: `${adminPath}/users/roles`
+            }
+        ]
+    },
+    {
+        name: 'Settings',
+        icon: 'fas fa-cog',
+        link: `${adminPath}/settings`,
+        active: true,
+        children: [
+            {
+                name: 'General',
+                link: `${adminPath}/settings/general`
+            },
+            {
+                name: 'Social',
+                link: `${adminPath}/settings/social`
+            },
+            {
+                name: 'Email',
+                link: `${adminPath}/settings/email`
+            },
+            {
+                name: 'Payment',
+                link: `${adminPath}/settings/payment`
+            },
+            {
+                name: 'Shipping',
+                link: `${adminPath}/settings/shipping`
+            },
+            {
+                name: 'Tax',
+                link: `${adminPath}/settings/tax`
+            },
+            {
+                name: 'SEO',
+                link: `${adminPath}/settings/seo`
+            },
+            {
+                name: 'Maintenance',
+                link: `${adminPath}/settings/maintenance`
+            }
+        ]
+    }
+    ]

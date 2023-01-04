@@ -1,0 +1,9 @@
+
+// Description: This file is the main file for the theme. It contains all the styles for the theme.
+@import "./pages/admin.scss";
+.panel{
+    background-color: #fff;
+    padding: 50px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px 0 rgb(0 0 0 / 16%), 0 2px 10px 0 rgb(0 0 0 / 12%);
+}

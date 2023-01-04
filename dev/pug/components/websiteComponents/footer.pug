@@ -1,0 +1,24 @@
+//- Start Preload
+.preloader
+  .spinner-border(role='status')
+    span.visually-hidden Loading...
+
+
+//- Start Modal
+#modal.modal(tabindex='-1')
+  .modal-dialog.modal-lg
+    .modal-content
+      .modal-header
+        h5.modal-title Modal title
+        button.btn-close(type='button' data-bs-dismiss='modal' aria-label='Close')
+      .modal-body
+        .product-detailes
+
+
+script(src='https://code.jquery.com/jquery-3.6.3.min.js' crossorigin='anonymous')
+script(src='https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.0.1/mdb.min.js' crossorigin='anonymous')
+script(type='module' src='https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js')
+script(nomodule='' src='https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js')
+script(src='./js/jquery.toast.js')
+script(src='./js/dataFunctions.js')
+script(src='./js/main.js')

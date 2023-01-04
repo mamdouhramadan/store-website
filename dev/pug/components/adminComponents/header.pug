@@ -1,0 +1,117 @@
+include ./../../variables/adminVars
+
+// Main Navigation
+header
+    // Sidebar
+    nav#sidebarMenu.collapse.d-lg-block.sidebar.collapse.bg-white
+        .position-sticky
+            .list-group.list-group-flush.mx-3.mt-4
+                each val , index in sidebarMenu
+                    a.list-group-item.list-group-item-action.py-3.ripple(class=`${val.active ? 'active' : ''}` ,href=`${val.link}`, aria-current="true")
+                        span 
+                            i.fa-fw.me-3(class=`${val.icon}`)
+                            span= val.name
+                            //- If has children
+                            div(class=`bg-light ${val.active ? 'show' : 'd-none'}`)
+                                if val.children && val.children.length > 0
+                                    each child in val.children
+                                        a.list-group-item.list-group-item-action.py-3.ripple.bg-light( href=`${child.link}`, aria-current="true")
+                                            span
+                                                i.fa-fw.me-3(class=`fas fa-angle-right`)
+                                                span= child.name
+                        
+    // Sidebar
+    // Navbar
+    nav#main-navbar.navbar.navbar-expand-lg.navbar-light.bg-white.fixed-top
+        // Container wrapper
+        .container-fluid
+            // Toggle button
+            button.navbar-toggler(type="button", data-mdb-toggle="collapse", data-mdb-target="#sidebarMenu", aria-controls="sidebarMenu", aria-expanded="false", aria-label="Toggle navigation")
+                i.fas.fa-bars
+            // Brand
+            a.navbar-brand(href="#")
+                img(src="https://mdbootstrap.com/img/logo/mdb-transaprent-noshadows.png", height="25", loading="lazy")
+            // Search form
+            form.d-none.d-md-flex.input-group.w-auto.my-auto
+                input.form-control.rounded(autocomplete="off", type="search", placeholder='Search (ctrl + "/" to focus)', style="min-width: 225px")
+                span.input-group-text.border-0
+                    i.fas.fa-search
+            // Right links
+            ul.navbar-nav.ms-auto.d-flex.flex-row
+                // Notification dropdown
+                li.nav-item.dropdown
+                    a#navbarDropdownMenuLink.nav-link.me-3.me-lg-0.dropdown-toggle.hidden-arrow(href="#", role="button", data-mdb-toggle="dropdown", aria-expanded="false")
+                        i.fas.fa-bell
+                        span.badge.rounded-pill.badge-notification.bg-danger 1
+                    ul.dropdown-menu.dropdown-menu-end(aria-labelledby="navbarDropdownMenuLink")
+                        li
+                            a.dropdown-item(href="#") Some news
+                        li
+                            a.dropdown-item(href="#") Another news
+                        li
+                            a.dropdown-item(href="#") Something else
+                // Icon
+                li.nav-item
+                    a.nav-link.me-3.me-lg-0(href="#")
+                        i.fas.fa-fill-drip
+                // Icon
+                li.nav-item.me-3.me-lg-0
+                    a.nav-link(href="#")
+                        i.fab.fa-github
+                // Icon dropdown
+                li.nav-item.dropdown
+                    a#navbarDropdown.nav-link.me-3.me-lg-0.dropdown-toggle.hidden-arrow(href="#", role="button", data-mdb-toggle="dropdown", aria-expanded="false")
+                        i.united.kingdom.flag.m-0
+                    ul.dropdown-menu.dropdown-menu-end(aria-labelledby="navbarDropdown")
+                        li
+                            a.dropdown-item(href="#")
+                                i.united.kingdom.flag
+                                | English
+                                i.fa.fa-check.text-success.ms-2
+                        li
+                            hr.dropdown-divider
+                        li
+                            a.dropdown-item(href="#")
+                                i.poland.flag
+                                | Polski
+                        li
+                            a.dropdown-item(href="#")
+                                i.china.flag
+                                | 中文
+                        li
+                            a.dropdown-item(href="#")
+                                i.japan.flag
+                                | 日本語
+                        li
+                            a.dropdown-item(href="#")
+                                i.germany.flag
+                                | Deutsch
+                        li
+                            a.dropdown-item(href="#")
+                                i.france.flag
+                                | Français
+                        li
+                            a.dropdown-item(href="#")
+                                i.spain.flag
+                                | Español
+                        li
+                            a.dropdown-item(href="#")
+                                i.russia.flag
+                                | Русский
+                        li
+                            a.dropdown-item(href="#")
+                                i.portugal.flag
+                                | Português
+                // Avatar
+                li.nav-item.dropdown
+                    a#navbarDropdownMenuLink.nav-link.dropdown-toggle.hidden-arrow.d-flex.align-items-center(href="#", role="button", data-mdb-toggle="dropdown", aria-expanded="false")
+                        img.rounded-circle(src="https://mdbootstrap.com/img/Photos/Avatars/img (31).jpg", height="22", loading="lazy")
+                    ul.dropdown-menu.dropdown-menu-end(aria-labelledby="navbarDropdownMenuLink")
+                        li
+                            a.dropdown-item(href="#") My profile
+                        li
+                            a.dropdown-item(href="#") Settings
+                        li
+                            a.dropdown-item(href="#") Logout
+        // Container wrapper
+    // Navbar

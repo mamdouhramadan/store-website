@@ -1,0 +1,265 @@
+extends ../../layouts/adminLayout
+block vars
+	- var path = './..';
+
+
+	
+block admin-content
+	// Section: Main chart
+	section.mb-4
+		.card
+			.card-header.py-3
+				h5.mb-0.text-center
+					strong Sales
+			.card-body
+				canvas#myChart.my-4.w-100(height="380")
+	// Section: Main chart
+	// Section: Sales Performance KPIs
+	section.mb-4
+		.card
+			.card-header.text-center.py-3
+				h5.mb-0.text-center
+					strong Sales Performance KPIs
+			.card-body
+				.table-responsive
+					table.table.table-hover.text-nowrap
+						thead
+							tr
+								th(scope="col")
+								th(scope="col") Product Detail Views
+								th(scope="col") Unique Purchases
+								th(scope="col") Quantity
+								th(scope="col") Product Revenue
+								th(scope="col") Avg. Price
+						tbody
+							tr
+								th(scope="row") Value
+								td 18,492
+								td 228
+								td 350
+								td $4,787.64
+								td $13.68
+							tr
+								th(scope="row") Percentage change
+								td
+									span.text-danger
+										i.fas.fa-caret-down.me-1
+										span -48.8%%
+								td
+									span.text-success
+										i.fas.fa-caret-up.me-1
+										span 14.0%
+								td
+									span.text-success
+										i.fas.fa-caret-up.me-1
+										span 46.4%
+								td
+									span.text-success
+										i.fas.fa-caret-up.me-1
+										span 29.6%
+								td
+									span.text-danger
+										i.fas.fa-caret-down.me-1
+										span -11.5%
+							tr
+								th(scope="row") Absolute change
+								td
+									span.text-danger
+										i.fas.fa-caret-down.me-1
+										span -17,654
+								td
+									span.text-success
+										i.fas.fa-caret-up.me-1
+										span 28
+								td
+									span.text-success
+										i.fas.fa-caret-up.me-1
+										span 111
+								td
+									span.text-success
+										i.fas.fa-caret-up.me-1
+										span $1,092.72
+								td
+									span.text-danger
+										i.fas.fa-caret-down.me-1
+										span $-1.78
+	// Section: Sales Performance KPIs
+	// Section: Minimal statistics cards
+	section
+		.row
+			.col-xl-3.col-sm-6.col-12.mb-4
+				.card
+					.card-body
+						.d-flex.justify-content-between.px-md-1
+							.align-self-center
+								i.fas.fa-pencil-alt.text-info.fa-3x
+							.text-end
+								h3 278
+								p.mb-0 New Posts
+			.col-xl-3.col-sm-6.col-12.mb-4
+				.card
+					.card-body
+						.d-flex.justify-content-between.px-md-1
+							.align-self-center
+								i.far.fa-comment-alt.text-warning.fa-3x
+							.text-end
+								h3 156
+								p.mb-0 New Comments
+			.col-xl-3.col-sm-6.col-12.mb-4
+				.card
+					.card-body
+						.d-flex.justify-content-between.px-md-1
+							.align-self-center
+								i.fas.fa-chart-line.text-success.fa-3x
+							.text-end
+								h3 64.89 %
+								p.mb-0 Bounce Rate
+			.col-xl-3.col-sm-6.col-12.mb-4
+				.card
+					.card-body
+						.d-flex.justify-content-between.px-md-1
+							.align-self-center
+								i.fas.fa-map-marker-alt.text-danger.fa-3x
+							.text-end
+								h3 423
+								p.mb-0 Total Visits
+		.row
+			.col-xl-3.col-sm-6.col-12.mb-4
+				.card
+					.card-body
+						.d-flex.justify-content-between.px-md-1
+							div
+								h3.text-danger 278
+								p.mb-0 New Projects
+							.align-self-center
+								i.fas.fa-rocket.text-danger.fa-3x
+			.col-xl-3.col-sm-6.col-12.mb-4
+				.card
+					.card-body
+						.d-flex.justify-content-between.px-md-1
+							div
+								h3.text-success 156
+								p.mb-0 New Clients
+							.align-self-center
+								i.far.fa-user.text-success.fa-3x
+			.col-xl-3.col-sm-6.col-12.mb-4
+				.card
+					.card-body
+						.d-flex.justify-content-between.px-md-1
+							div
+								h3.text-warning 64.89 %
+								p.mb-0 Conversion Rate
+							.align-self-center
+								i.fas.fa-chart-pie.text-warning.fa-3x
+			.col-xl-3.col-sm-6.col-12.mb-4
+				.card
+					.card-body
+						.d-flex.justify-content-between.px-md-1
+							div
+								h3.text-info 423
+								p.mb-0 Support Tickets
+							.align-self-center
+								i.far.fa-life-ring.text-info.fa-3x
+		.row
+			.col-xl-3.col-sm-6.col-12.mb-4
+				.card
+					.card-body
+						.d-flex.justify-content-between.px-md-1
+							div
+								h3.text-info 278
+								p.mb-0 New Posts
+							.align-self-center
+								i.fas.fa-book-open.text-info.fa-3x
+						.px-md-1
+							.progress.mt-3.mb-1.rounded(style="height: 7px")
+								.progress-bar.bg-info(role="progressbar" style="width: 80%" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100")
+			.col-xl-3.col-sm-6.col-12.mb-4
+				.card
+					.card-body
+						.d-flex.justify-content-between.px-md-1
+							div
+								h3.text-warning 156
+								p.mb-0 New Comments
+							.align-self-center
+								i.far.fa-comments.text-warning.fa-3x
+						.px-md-1
+							.progress.mt-3.mb-1.rounded(style="height: 7px")
+								.progress-bar.bg-warning(role="progressbar" style="width: 35%" aria-valuenow="35" aria-valuemin="0" aria-valuemax="100")
+			.col-xl-3.col-sm-6.col-12.mb-4
+				.card
+					.card-body
+						.d-flex.justify-content-between.px-md-1
+							div
+								h3.text-success 64.89 %
+								p.mb-0 Bounce Rate
+							.align-self-center
+								i.fas.fa-mug-hot.text-success.fa-3x
+						.px-md-1
+							.progress.mt-3.mb-1.rounded(style="height: 7px")
+								.progress-bar.bg-success(role="progressbar" style="width: 60%" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100")
+			.col-xl-3.col-sm-6.col-12.mb-4
+				.card
+					.card-body
+						.d-flex.justify-content-between.px-md-1
+							div
+								h3.text-danger 423
+								p.mb-0 Total Visits
+							.align-self-center
+								i.fas.fa-map-signs.text-danger.fa-3x
+						.px-md-1
+							.progress.mt-3.mb-1.rounded(style="height: 7px")
+								.progress-bar.bg-danger(role="progressbar" style="width: 40%" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100")
+	// Section: Minimal statistics cards
+	// Section: Statistics with subtitles
+	section
+		.row
+			.col-xl-6.col-md-12.mb-4
+				.card
+					.card-body
+						.d-flex.justify-content-between.p-md-1
+							.d-flex.flex-row
+								.align-self-center
+									i.fas.fa-pencil-alt.text-info.fa-3x.me-4
+								div
+									h4 Total Posts
+									p.mb-0 Monthly blog posts
+							.align-self-center
+								h2.h1.mb-0 18,000
+			.col-xl-6.col-md-12.mb-4
+				.card
+					.card-body
+						.d-flex.justify-content-between.p-md-1
+							.d-flex.flex-row
+								.align-self-center
+									i.far.fa-comment-alt.text-warning.fa-3x.me-4
+								div
+									h4 Total Comments
+									p.mb-0 Monthly blog posts
+							.align-self-center
+								h2.h1.mb-0 84,695
+		.row
+			.col-xl-6.col-md-12.mb-4
+				.card
+					.card-body
+						.d-flex.justify-content-between.p-md-1
+							.d-flex.flex-row
+								.align-self-center
+									h2.h1.mb-0.me-4 $76,456.00
+								div
+									h4 Total Sales
+									p.mb-0 Monthly Sales Amount
+							.align-self-center
+								i.far.fa-heart.text-danger.fa-3x
+			.col-xl-6.col-md-12.mb-4
+				.card
+					.card-body
+						.d-flex.justify-content-between.p-md-1
+							.d-flex.flex-row
+								.align-self-center
+									h2.h1.mb-0.me-4 $36,000.00
+								div
+									h4 Total Cost
+									p.mb-0 Monthly Cost
+							.align-self-center
+								i.fas.fa-wallet.text-success.fa-3x
+	// Section: Statistics with subtitles
