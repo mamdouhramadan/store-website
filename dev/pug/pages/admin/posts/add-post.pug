@@ -1,0 +1,49 @@
+extends ../../../layouts/adminLayout
+block admin-content
+    +page-title('Add New Post')
+
+    section.add-item.my-4
+        .row
+            .col-md-9
+
+                +inputField('Title', 'title')
+
+                .form-group 
+                    label(for="content") Content
+                    textarea#content.form-control(type="text" placeholder="Description" style="height: 200px;")
+
+                
+
+            .col-md-3
+                .wiggets.px-3
+                    .widget.controle-widget
+                        .widget-header
+                            h3.widget-title #[i.fa.fa-cog] Controle
+                        .widget-body 
+                            .row
+                                .col-6
+                                    +inputField('Publish Date', 'publish-date','date')
+                                .col-6
+                                    +inputField('Publish Time', 'publish-time','time')
+
+                            .puplish-status
+                                +selectField('Publish Status', 'publish-status',[{name: 'Published', value: 1}, {name: 'Draft', value: 2}])
+
+                            .d-flex.justify-content-end.action.mb-2
+                                button.btn.btn-primary.btn-lg.me-2(type="submit") Save
+                                button.btn.btn-danger.btn-lg.me-2(type="submit") Cancel
+
+                    .widget.widget-detailes
+                        .widget-header
+                            h3.widget-title #[i.fa.fa-info-circle] Detailes
+                        .widget-body
+                            +selectField('Category', 'category',[{name: 'Category 1', value: 1}, {name: 'Category 2', value: 2}, {name: 'Category 3', value: 3}, {name: 'Category 4', value: 4}, {name: 'Category 5', value: 5}])
+
+                            +inputField('Tags', 'tags')
+                            
+                            +inputField('Image Tumbnail', 'image','file')
+
+
+block scripts 
+    script.
+        getTableData('posts')

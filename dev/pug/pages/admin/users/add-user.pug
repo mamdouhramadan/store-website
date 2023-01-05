@@ -1,0 +1,67 @@
+extends ../../../layouts/adminLayout
+block admin-content
+    +page-title('Add New User')
+
+    section.add-item.my-4
+        .row
+            .col-md-9
+                .row    
+                    .col-md-12
+                        +inputField('Full Name', 'title')
+                    .col-md-6
+                        +inputField('Phone', 'phone')
+                    .col-md-6
+                        +inputField('Email', 'email')
+                    .col-md-6
+                        +inputField('Website', 'website')
+                    .col-md-6
+                        +inputField('Address', 'address')
+                    .col-md-6
+                        +inputField('City', 'city')
+                    .col-md-6
+                        +inputField('Country', 'country')
+
+                .form-group 
+                    label(for="bio") Bio
+                    textarea#bio.form-control(type="text" placeholder="Bio" style="height: 200px;")
+
+
+
+            .col-md-3
+                .wiggets.px-3
+                    .widget.controle-widget
+                        .widget-header
+                            h3.widget-title #[i.fa.fa-cog] Controle
+                        .widget-body 
+                            .user-status
+                                +selectField('user Status', 'user-status',[{name: 'Active', value: 1}, {name: 'Inactive', value: 2}])
+
+                            .d-flex.justify-content-end.action.mb-2
+                                button.btn.btn-primary.btn-lg.me-2(type="submit") Save
+                                button.btn.btn-danger.btn-lg.me-2(type="submit") Cancel
+
+                    .widget.widget-detailes
+                        .widget-header
+                            h3.widget-title #[i.fa.fa-info-circle] Detailes
+                        .widget-body
+                            +selectField('Role', 'role',[{name: 'Admin', value: 1}, {name: 'Editor', value: 2}, {name: 'Author', value: 3}, {name: 'Contributor', value: 4}, {name: 'Subscriber', value: 5}])
+
+                            +inputField('Nick Name', 'nick-name')
+
+                    .widget.widget-password
+                        .widget-header
+                            h3.widget-title #[i.fa.fa-key] Password
+                        .widget-body
+                            +inputField('Password', 'password', 'password')
+
+                            +inputField('Confirm Password', 'confirm-password', 'password')
+                .delete-user.p-3
+                    a.btn.btn-danger.btn-lg.btn-block(href="#") #[i.fa.fa-trash] #[span.mx-2 Delete User]
+
+
+
+
+
+block scripts
+    script.
+        getTableData('products')

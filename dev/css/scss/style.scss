@@ -2,14 +2,13 @@
 @import "./themes/themes";
 @import "./variables/variables";
 @import "./global/global";
-@import "./components/components.scss";
-@import "./pages/pages.scss";
-
-
+@import "./components/components.scss"; 
+@import "./pages/pages.scss";  
+ 
 .panel {
-    background-color: #fff;   
+    background-color: #fff;  
     padding: 50px;
-    border-radius: 5px;
+    border-radius: 5px; 
     box-shadow: 0 2px 3px 0 rgba(0, 0, 0, 0.1), 0 2px 5px 0 rgba(0, 0, 0, 0.1);
     min-height: calc(100vh - 110px);
     position: relative;

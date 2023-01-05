@@ -15,10 +15,10 @@ nav#sidebarMenu.collapse.d-lg-block.sidebar.collapse.bg-white
                                 span= val.name
                         // children 
                         if val.children != undefined && val.children.length > 0
-                            ul.list-group.list-group-flush.d-none
-                                each child in val.children
+                            ul.child-menu.list-group.list-group-flush.d-none
+                                each child,indx in val.children
                                     li.list-group-item.list-group-item-action.p-0
-                                        a.d-block.py-2.px-3(href=`${child.link}`)
+                                        a.d-block.py-2.px-3(href=`${child.link}${indx != 0 && '.html' || ''}`)
                                             span.p-2
                                                 i.fas.fa-angle-right.fas-a.fa-fw.me-3
                                                 span= child.name

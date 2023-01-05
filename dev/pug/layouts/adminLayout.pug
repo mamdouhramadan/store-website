@@ -6,7 +6,7 @@ doctype html
 html(lang="en")
 	head
 		block vars
-			- var path = './..'
+			- var path = './../..'
 		meta(charset="UTF-8")
 		meta(name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no")
 		meta(http-equiv="x-ua-compatible" content="ie=edge")
@@ -32,7 +32,7 @@ html(lang="en")
 			include ../components/adminComponents/sidebar
 			include ../components/adminComponents/header
 
-		main(style="margin-top: 58px")
+		main(class="admin-content" style="margin-top: 58px")
 			.container.py-4
 				section
 					.container
@@ -64,3 +64,7 @@ html(lang="en")
 		script(type="text/javascript" src=`https://cdn.datatables.net/1.11.3/js/jquery.dataTables.js`)
 		script(type="text/javascript" src=`https://cdn.datatables.net/responsive/2.2.9/js/dataTables.responsive.js`)
 		script(type="text/javascript" src=`https://cdn.datatables.net/responsive/2.2.9/js/responsive.bootstrap5.js`)
+
+		//- Sweet Alert
+		script(type="text/javascript" src=`https://cdn.jsdelivr.net/npm/sweetalert2@11`)
+

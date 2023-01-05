@@ -18,6 +18,7 @@ body {
 .container-xxl {
     max-width: 98%;
 }
+
 .table-responsive {
     min-height: 100%;
     overflow-x: auto;
@@ -35,4 +36,10 @@ body {
     align-items: center;
     justify-content: center;
     z-index: 9999;
-} 
+}
+
+.page-header {
+    padding-bottom: 20px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.14);
+    margin-bottom: 30px !important; 
+}

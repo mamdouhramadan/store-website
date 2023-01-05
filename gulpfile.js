@@ -21,7 +21,7 @@ gulp.task('html', function () {
 
 // start task for sass to css
 gulp.task('css', function () {
-    return gulp.src(['dev/css/scss/*.scss', 'dev/css/libs/**/*.scss'])
+    return gulp.src(['dev/css/scss/*.scss','dev/css/**/*.scss', 'dev/css/libs/**/*.scss'])
         .pipe(soarcemap.init())
         .pipe(sass({ outputStyle: 'compressed' }).on('error', sass.logError))
         .pipe(autoprefixer({ cascade: false }))
@@ -57,7 +57,7 @@ gulp.task('watch', function () {
     require('./server');
     livereload.listen();
     gulp.watch('dev/pug/pages/**/*.pug', gulp.series('html'));
-    gulp.watch(['dev/css/scss/*.scss',"dev/css/libs/**/*.scss"], gulp.series('css'));
+    gulp.watch(['dev/css/scss/*.scss',"dev/css/l**/*.scss"], gulp.series('css'));
     gulp.watch('dev/js/**/*.js', gulp.series('js'));
     gulp.watch('dev/img/**/*', gulp.series('image'));
 });

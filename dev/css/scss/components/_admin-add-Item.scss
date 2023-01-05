@@ -1,0 +1,54 @@
+.admin-content {
+    .widget {
+        border: 1px solid $primary-light;
+        margin-bottom: 20px;
+        border-radius: 8px;
+    }
+
+    .widget-title {
+        font-size: 18px;
+        display: flex;
+        background: #eee;
+        padding: 15px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        font-weight: 600;
+        margin: 0;
+    }
+
+    .widget-body {
+        padding: 20px
+    }
+
+    .widget-body .action {
+        margin-top: 20px
+    }
+
+    .form-group {
+        margin-bottom: 20px;
+
+        label {
+            font-size: 13px;
+            font-weight: bold;
+            margin-bottom: 10px;
+            text-transform: capitalize;
+        }
+
+        input,
+        select {
+            height: 55px !important;
+        }
+
+        .form-control,
+        textarea {
+            border: 1px solid $primary-light !important;
+            border-radius: 5px !important;
+            padding: 15px !important;
+            font-size: 16px !important;
+            color: $black !important;
+            width: 100% !important;
+            box-shadow: 0 2px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.1) !important;
+        }
+    }
+}

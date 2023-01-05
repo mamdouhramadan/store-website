@@ -4,12 +4,13 @@ mixin loader
             .visually-hidden Loading...
 
 mixin page-title(title,button)
-    .page-header.mb-5
+    .page-header.mb-2
         .d-flex.justify-content-between
             h3 #[b= title]
-            button.btn.btn-primary(href='/admin/users/create') 
-                i.fas.fa-add
-                span.mx-2= button
+            if button 
+                button.btn.btn-primary(href='/admin/users/create') 
+                    i.fas.fa-add
+                    span.mx-2= button
 
 mixin dataTable(header)
     .table-responsive.table-container(style='position: relative;')    
@@ -23,3 +24,14 @@ mixin dataTable(header)
             tbody
 
 
+mixin inputField(label,name,type)
+    .form-group
+        label(for=`${name}`)= label
+        input.form-control(id=`${name}` name=`${name}` type=`${type ? type : 'text'}` placeholder=`${label}`)
+
+mixin selectField(label,name,options)
+    .form-group
+        label(for="publish-status")= label
+        select#publish-status.form-control
+            each val,index in options
+                option(value=`${val.value}`)= val.name
