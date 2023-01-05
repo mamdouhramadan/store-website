@@ -1,14 +1,9 @@
 extends ../../../layouts/adminLayout
 block admin-content
-    //- Start Main Content  
-    section
-        .container
-            .panel.panel-default
-                .panel-body
-                    table.products-table.table.m-0.mb-5.shadow.rounded.bg-light
-                        thead.bg-white 
-                            tr
-                                th(style='width: 50px;') #
-                                //- Start Table Header
-                                each val,index in ["Product", "Category", "Brand", "Price", "Rating","Action"]
-                                    th(class=`${index == 0 ? '':'text-center'}`) #[b= val]
+    +page-title('Users','Add New User')
+    //- Start Main Content   
+    +dataTable(['Full Name', 'email', 'phone','birthDate', 'address', 'Action']) 
+
+block scripts 
+    script.
+        getTableData('users')

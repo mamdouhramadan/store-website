@@ -1,0 +1,22 @@
+.images-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.modal .product-images {
+    flex: 1 1 40%;
+}
+
+:is(.product-images, .images-list) li {
+    max-width: 30%;
+}
+
+:is(.product-images, .images-list) img {
+    max-width: 100%;
+}
+
+.images-list img {
+    aspect-ratio: 1;
+    object-fit: cover;
+}

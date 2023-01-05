@@ -4,7 +4,7 @@
 var api = 'https://dummyjson.com';
 
 $(document).ready(function () {
-    getProducts();
+    // getProducts();
     getCategories();
 })
 
@@ -18,7 +18,7 @@ var getProducts = (page = 0) => {
         .then(res => res.json())
         .then(data => setProducts(data.products))
         .catch(err => console.log(err))
-        .finally(() => $('.preloader').hide(300))
+        .finally(() => $('.preloader').fadeOut(300))
 }
 
 var page = 1;
@@ -34,19 +34,13 @@ const prevPage = () => {
     getProducts(page);
 }
 
-
 //=========================
 // Table Rsesult HTML
 //=========================
 var setProducts = (data) => {
-    $('.products-table tbody').html('')
-    data.map((el, index) => $('.products-table tbody').append(result(el, index)))
+    $('.dataTable tbody').html('')
+    data.map((el, index) => $('.data-table').append(`<tbody>${result(el, index)}</tbody>`))
 }
-
-
-//=========================
-// Single Product Data 
-//=========================
 
 //=======================
 // Get a single product
@@ -74,47 +68,6 @@ const productDetailes = async (id) => {
     console.log('ID: ', id)
 }
 
-//=======================
-// Search products
-//=======================
-const searchProduct = async () => {
-
-    let query = $('#search').val();
-    let search = $('#search').closest('.input-group');
-
-    if (query != '') {
-        alert(query)
-        await fetch(`${api}/products/search?q=${query}`)
-            .then(res => res.json())
-            //.then(data => console.log(data.products))
-            .then(data => {
-                let { products } = data
-                if (products.length < 1) {
-                    $.toast({
-                        heading: 'Error',
-                        text: 'There is no data ',
-                        showHideTransition: 'fade',
-                        icon: 'error',
-                        position: 'top-left',
-                    })
-                }
-                setProducts(products)
-            });
-        search.removeClass('border-danger')
-        $('.clear-search').removeClass('d-none')
-    } else {
-        search.addClass('border-danger').css('border-width', '2px')
-    }
-}
-
-//======================
-// Clear Search Result 
-//=====================
-const clearSearch = () => {
-    getProducts();
-    $('.clear-search').addClass('d-none')
-
-}
 //==============================
 // Get all categories
 //==============================
@@ -128,3 +81,35 @@ const getCategories = () => {
 // Get products of a category
 //==============================           
 //fetch(`${api}/products/category/smartphones`).then(res => res.json()).then((data) => console.log(data));
+
+//=======================
+// Get Table Data 
+//=======================
+var getTableData = (target) => {
+    fetch(`${api}/${target}`)
+        .then(res => res.json())
+        .then(data => {
+            var result = data[target];
+            if (target == 'users') {
+                usersResult(result)
+            } else if (target == 'products') {
+                productResult(result)
+            } else if (target == 'posts') {
+                postsResult(result)
+            }
+        })
+        .catch(err => {
+            console.log(err)
+            $('.preloader').fadeOut(300);
+        })
+        .finally(() => {
+            $('#data-table').DataTable()
+            $('.preloader').fadeOut(300);
+        })
+}
+
+
+
+
+
+

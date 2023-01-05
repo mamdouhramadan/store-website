@@ -1,9 +1,10 @@
 extends ../../../layouts/adminLayout
 block admin-content
     //- Start Main Content  
-    section
-        .container
-            .panel.panel-default
-                .panel-body
-                    h2 Products Page
-                    
+    +dataTable(['Name','Category','brand' ,'Price','Rating','Action']) 
+
+block scripts
+    script.
+        getTableData('products')
+
+

@@ -1,0 +1,25 @@
+mixin loader
+    .preloader
+        .spinner-grow(style="width: 3rem; height: 3rem;" role="status")
+            .visually-hidden Loading...
+
+mixin page-title(title,button)
+    .page-header.mb-5
+        .d-flex.justify-content-between
+            h3 #[b= title]
+            button.btn.btn-primary(href='/admin/users/create') 
+                i.fas.fa-add
+                span.mx-2= button
+
+mixin dataTable(header)
+    .table-responsive.table-container(style='position: relative;')    
+        table.dataTable.table.table-hover.m-0.mb-5.rounded.bg-light(id="data-table")
+            thead.bg-white 
+                tr
+                    th(style='width: 50px;text-align:center') #
+                    //- Start Table Header
+                    each val,index in header
+                        th(class=`${index == 0 ? '':'text-center'}`) #[b= val]
+            tbody
+
+

@@ -1,0 +1,49 @@
+table th,
+table td {
+    vertical-align: middle;
+    padding: 10px !important;
+    text-transform: capitalize;
+}
+
+.product-img {
+    width: 45px;
+    height: 45px;
+    object-fit: cover;
+}
+
+.nationality-flag {
+    width: 35px;
+    height: 35px;
+    object-fit: cover;
+    border-radius: 50%;
+    display: inline-block;
+    margin: auto;
+}
+
+.toggle-collapse-open {
+    position: relative;
+    box-shadow: 0 0 3px rgba(0, 0, 0, 0.3);
+    margin: 0 10px;
+    width: 35px;
+    height: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 !important;
+    border-radius: 50%;
+}
+
+.search-panel .input-group {
+    border: 1px solid #eee;
+    border-radius: $border-radius-lg;
+    box-shadow: 0 0 1px rgba(0, 0, 0, 0.3);
+    background-color: $white;
+}
+
+.search-panel .input-group-text,
+.search-panel .form-control,
+.search-panel .form-select {
+    border: 0 !important;
+    margin: 0 !important;
+    background-color: transparent;
+}

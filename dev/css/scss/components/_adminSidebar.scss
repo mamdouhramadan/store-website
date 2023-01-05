@@ -1,0 +1,32 @@
+.sidebar {
+    overflow-y: auto;
+
+    .list-group-item {
+        &.active {
+            background-color: #f1f1f1 !important;
+            box-shadow: none !important;
+            & > a {
+                border-bottom: 1px solid #ddd !important;
+            }
+            + ul li a{
+                border: 0 !important;
+            }
+        }
+
+        li {
+            background: #f7f7f7 !important;
+
+            a {
+                opacity: 0.65;
+                transition: all ease-in-out 0.3s;
+            }
+
+            &:hover,
+            &.active {
+                a {
+                    opacity: 1 !important;
+                }
+            }
+        }
+    }
+}

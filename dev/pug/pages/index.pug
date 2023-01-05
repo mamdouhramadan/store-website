@@ -2,10 +2,10 @@ extends ../layouts/websiteLayout
 block content
     //- myTitle = 'Home'
     //- Start Search Panel
-    .search-panel.panel.panel-default.mb-5
+    .search-panel.panel.panel-default.mb-5 
         .panel-body.bg-light.py-5
-            .container
-                h2.h1 Products  
+            .container 
+                h2.h1 Products 
                 .panel.panel-default
                     .panel-body.mt-4.px-3.py-4.d-flex.bg-white.shadow-sm.rounded
                         //- Search Product
@@ -14,7 +14,7 @@ block content
                             input#search.form-control-lg.form-control(placeholder='Search Product')
 
                         //- نوع الطلب
-                        .input-group.mx-2
+                        .input-group.mx-2 
                             span#basic-addon1.input-group-text #[ion-icon(name='documents')]
                             select.form-select.select-category.form-select-lg.text-capitalize
                                 option(value='' disabled='' selected='') All Categories
@@ -36,9 +36,9 @@ block content
 
     //- Start Main Content 
     section
-        .container
+        .container 
             .panel.panel-default
-                .panel-body
+                .panel-body 
                     table.products-table.table.m-0.mb-5.shadow.rounded.bg-light
                         thead.bg-white
                             tr

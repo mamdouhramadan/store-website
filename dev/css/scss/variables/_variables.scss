@@ -1,0 +1,55 @@
+// set variables for dimentions
+$spacer: 1rem;
+
+$border-radius: .25rem;
+$border-width: 1px;
+$font-size-base: 1rem;
+$font-size-lg: 1.25rem;
+$font-size-sm: .875rem;
+$font-size-xs: .75rem;
+$font-size-xxs: .625rem;
+$font-size-xxxl: 1.5rem;
+$font-size-xxxxl: 2rem;
+
+$font-weight-light: 300;
+$font-weight-normal: 400;
+$font-weight-bold: 700;
+$font-weight-bolder: 800;
+
+$line-height-base: 1.5;
+$line-height-lg: 1.75;
+$line-height-sm: 1.25;
+
+$border-radius-lg: .3rem;
+$border-radius-sm: .2rem;
+
+$border-radius-circle: 50%;
+$border-radius-pill: 50rem;
+
+$border-radius-0: 0;
+$border-radius-1: .25rem;
+$border-radius-2: .5rem;
+$border-radius-3: 1rem;
+$border-radius-4: 1.5rem;
+$border-radius-5: 3rem;
+
+$border-radius-top: $border-radius $border-radius 0 0;
+$border-radius-bottom: 0 0 $border-radius $border-radius;
+$border-radius-left: $border-radius 0 0 $border-radius;
+$border-radius-right: 0 $border-radius $border-radius 0;    
+
+$border-radius-top-left: $border-radius 0 0 0;
+$border-radius-top-right: 0 $border-radius 0 0;
+$border-radius-bottom-left: 0 0 0 $border-radius;
+$border-radius-bottom-right: 0 0 $border-radius 0;
+
+$border-radius-top-lg: $border-radius-lg $border-radius-lg 0 0;
+$border-radius-bottom-lg: 0 0 $border-radius-lg $border-radius-lg;
+$border-radius-left-lg: $border-radius-lg 0 0 $border-radius-lg;
+$border-radius-right-lg: 0 $border-radius-lg $border-radius-lg 0;
+
+$border-radius-top-left-lg: $border-radius-lg 0 0 0;
+$border-radius-top-right-lg: 0 $border-radius-lg 0 0;
+$border-radius-bottom-left-lg: 0 0 0 $border-radius-lg;
+$border-radius-bottom-right-lg: 0 0 $border-radius-lg 0;
+

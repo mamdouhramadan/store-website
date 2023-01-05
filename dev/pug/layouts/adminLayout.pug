@@ -1,5 +1,6 @@
 //- Start Includes Vars    
 include ../variables/variables
+include ../mixins/mixins
 
 doctype html
 html(lang="en")
@@ -16,34 +17,50 @@ html(lang="en")
 		link(rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap")
 		// MDB
 		link(rel="stylesheet" href=`https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.1.0/mdb.min.css`)
+		// Datatable
+		link(rel="stylesheet" href=`https://cdn.datatables.net/1.11.3/css/dataTables.bootstrap5.css`)
+		link(rel="stylesheet" href=`https://cdn.datatables.net/responsive/2.2.9/css/responsive.bootstrap5.css`)
+		//https://cdn.datatables.net/1.13.1/css/jquery.dataTables.min.css
 		//- // Custom styles
 		//- link(rel="stylesheet" href=`${path}/assets/css/admin.css`)
 		// Main styles
 		link(rel="stylesheet" href=`${path}/assets/css/style.css`)
-		script(src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.js" integrity="sha512-d9xgZrVZpmmQlfonhQUvTR7lMPtO7NkZMkA0ABN3PHCbKA5nqylQ/yWlFAyY6hYgdF1Qh6nYiuADWwKB4C2WSw==" crossorigin="anonymous")
+
 	body
 
-		include ../components/adminComponents/header
+		header
+			include ../components/adminComponents/sidebar
+			include ../components/adminComponents/header
 
 		main(style="margin-top: 58px")
-			.container.pt-4
-				block admin-content
+			.container.py-4
+				section
+					.container
+						.panel.panel-default
+							.panel-body
+								block admin-content
+							+loader
 
 
 		//- jQuery
-		script(src='https://code.jquery.com/jquery-3.6.3.min.js' crossorigin='anonymous')
+		script(src='https://code.jquery.com/jquery-3.6.0.js')
+		
 		//- Ionic Icons
 		script(type="text/javascript" src=`https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js`)
 		script(type="text/javascript" src=`https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js`)
+
 		
 		//- jQuery Toast
-		script(type="text/javascript" src=`${path}/assets/js/jquery.toast.js`)
+		//-script(type="text/javascript" src=`${path}/assets/js/jquery.toast.js`)
+
 		//- MDB
 		script(type="text/javascript" src=`https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.1.0/mdb.min.js`)
-		//- //- Custom scripts
-		//- script(type="text/javascript" src=`${path}/assets/js/admin.js`)
-		//- //- Data 
-		//- script(type="text/javascript" src=`${path}/assets/js/dataFunctions.js`)
 		//- My Custom Scripts
-		script(type="text/javascript" src=`${path}/assets/js/admin.js`)
+		script(type="text/javascript" src=`${path}/assets/js/main-min.js`)
 		
+		block scripts
+
+		//- Datatable
+		script(type="text/javascript" src=`https://cdn.datatables.net/1.11.3/js/jquery.dataTables.js`)
+		script(type="text/javascript" src=`https://cdn.datatables.net/responsive/2.2.9/js/dataTables.responsive.js`)
+		script(type="text/javascript" src=`https://cdn.datatables.net/responsive/2.2.9/js/responsive.bootstrap5.js`)
