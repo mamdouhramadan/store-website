@@ -1,0 +1,30 @@
+extends ../../../layouts/adminLayout
+block admin-content 
+    +page-title('Brands List','Add New Brand')
+    include ../../../variables/staticContent
+
+    //- Start Main Content
+    .table-responsive.table-container(style='position: relative;')    
+        table.dataTable.table.table-hover.m-0.mb-5.rounded.bg-light(id="data-table")
+            thead.bg-white
+                tr
+                    th #[b Name]
+                    th(style="width:150px") #[b Action ]
+            tbody
+                each brand in brands
+                    tr
+                        td= brand.name
+                        td
+                            button(onclick=`alert(${brand.id})` class='btn btn-primary btn-sm mx-2')
+                                i.fas.fa-edit
+                            button(onclick=`alert(${brand.id})` class='btn btn-danger btn-sm mx-2')
+                                i.fas.fa-trash
+
+block scripts
+    script.
+        // when page loaded
+        $(document).ready(function(){
+            $('#data-table').DataTable(); 
+            $('.preloader').fadeOut(300);
+        })
+

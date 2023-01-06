@@ -12,7 +12,9 @@ block admin-content
                     label(for="content") Content
                     textarea#content.form-control(type="text" placeholder="Description" style="height: 200px;")
 
-                
+                .form-group
+                    #toolbar
+                    .editor(id="editor" style="height: 200px;")
 
             .col-md-3
                 .wiggets.px-3
@@ -40,10 +42,24 @@ block admin-content
                             +selectField('Category', 'category',[{name: 'Category 1', value: 1}, {name: 'Category 2', value: 2}, {name: 'Category 3', value: 3}, {name: 'Category 4', value: 4}, {name: 'Category 5', value: 5}])
 
                             +inputField('Tags', 'tags')
-                            
+
                             +inputField('Image Tumbnail', 'image','file')
 
 
-block scripts 
+block scripts
+    link( href="https://cdn.quilljs.com/1.1.9/quill.snow.css" rel="stylesheet")
+    script(src="https://cdn.quilljs.com/1.1.9/quill.js")
     script.
         getTableData('posts')
+        // quill editor
+        var quill = new Quill('#editor', {
+            theme: 'snow',
+            //placeholder="Write something...",
+            formats : ['bold', 'italic', 'underline', 'strike', 'blockquote', 'code-block', 'header', 'list', 'bullet', 'indent', 'link', 'image', 'video', 'formula'],
+            
+
+        });
+        // print quill editor content on click jquery
+        $('button').click(function(){
+            console.log(quill.root.innerHTML)
+        })        

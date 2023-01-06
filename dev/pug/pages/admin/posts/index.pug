@@ -5,6 +5,7 @@ block admin-content
     //- Start Main Content   
     +dataTable(['Title', 'content', 'tags','comments', 'Action']) 
 
-block scripts 
+block scripts
+    script(src="//cdn.quilljs.com/1.3.6/quill.core.js")
     script.
         getTableData('posts')

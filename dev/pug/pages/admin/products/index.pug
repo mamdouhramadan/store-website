@@ -1,5 +1,7 @@
 extends ../../../layouts/adminLayout
 block admin-content
+    +page-title('Products List','Add New Product')
+
     //- Start Main Content  
     +dataTable(['Name','Category','brand' ,'Price','Rating','Action']) 
 

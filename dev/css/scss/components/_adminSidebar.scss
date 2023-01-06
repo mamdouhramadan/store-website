@@ -2,14 +2,30 @@
     overflow-y: auto;
 
     .list-group-item {
+        position: relative;
+
         &.active {
             background-color: #f1f1f1 !important;
             box-shadow: none !important;
-            & > a {
+
+            &>a {
                 border-bottom: 1px solid #ddd !important;
             }
-            + ul li a{
+
+            +ul li a {
                 border: 0 !important;
+            }
+        }
+
+        &:hover a+.child-menu:not(.active-menu) {
+            position: absolute;
+            left: 240px;
+            top: 0;
+            display: block !important;
+            min-width: 200px;
+
+            a {
+                padding: 15px 0 !important;
             }
         }
 
@@ -19,6 +35,7 @@
             a {
                 opacity: 0.65;
                 transition: all ease-in-out 0.3s;
+                font-size: 15px;
             }
 
             &:hover,
@@ -28,5 +45,6 @@
                 }
             }
         }
+
     }
 }

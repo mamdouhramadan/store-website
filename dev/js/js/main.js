@@ -86,9 +86,12 @@ const getCategories = () => {
 // Get Table Data 
 //=======================
 var getTableData = (target) => {
+    // fetch the data from the api
     fetch(`${api}/${target}`)
+        // convert the data to json
         .then(res => res.json())
         .then(data => {
+            // store the data target in a variable
             var result = data[target];
             if (target == 'users') {
                 usersResult(result)
@@ -96,6 +99,9 @@ var getTableData = (target) => {
                 productResult(result)
             } else if (target == 'posts') {
                 postsResult(result)
+            } else if (target == 'products/categories') {
+                // we used the (data) instead of (result) because the result is an array 
+                categoriesResult(data)
             }
         })
         .catch(err => {
@@ -107,9 +113,3 @@ var getTableData = (target) => {
             $('.preloader').fadeOut(300);
         })
 }
-
-
-
-
-
-

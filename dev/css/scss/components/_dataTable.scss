@@ -47,3 +47,84 @@ table td {
     margin: 0 !important;
     background-color: transparent;
 }
+
+
+.dataTables_wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+
+    & :is(.dataTables_length, .dataTables_filter) {
+        flex: 0 0 50%;
+        width: 50%;
+        float: none;
+        background: #f9f9f9;
+        padding: 20px;
+        display: flex;
+        align-items: center;
+        height: 70px;
+
+        label {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            color: $gray;
+
+            select,
+            input[type="search"] {
+                border: 1px solid #eee;
+                border-radius: $border-radius-lg;
+                padding: 10px;
+                width: 100%;
+                height: 45px;
+                box-shadow: 0 0 1px rgba(0, 0, 0, 0.3);
+            }
+        }
+    }
+
+    .dataTables_filter {
+        justify-content: flex-end;
+    }
+
+
+    .table {
+        flex: 0 0 100%;
+        box-shadow: 0 0 2px rgba(0, 0, 0, .2);
+        margin: 25px 0 !important;
+
+        tr:nth-child(even) td {
+            background: $white !important;
+        }
+    }
+
+    :is(#data-table_paginate, #data-table_info) {
+        flex: 0 0 50%;
+        width: 50%;
+        // border-top: 1px solid #eee;
+        padding: 5px 2px;
+    }
+
+    #data-table_info {
+        color: $gray;
+    }
+
+    #data-table_paginate a {
+        padding: 10px;
+        border: 1px solid #eee;
+        margin: 0 -1px;
+        min-width: 40px;
+        display: inline-block;
+        text-align: center;
+        cursor: pointer;
+        transition: all .3s ease;
+
+        &.disabled {
+            color: #ccc;
+            cursor: not-allowed;
+        }
+
+        &:hover {
+            background: #eee;
+        }
+    }
+}

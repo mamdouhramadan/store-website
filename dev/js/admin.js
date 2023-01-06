@@ -12,7 +12,7 @@ $(document).ready(function () {
     // add active class
     activeItem.closest('li').addClass('active');
     // if child menu contain active list item class
-    $('.child-menu li.active').closest('ul').removeClass('d-none');
+    $('.child-menu li.active').closest('ul').toggleClass('d-none active-menu').parent().addClass('active');
 
 })
 // jquery end

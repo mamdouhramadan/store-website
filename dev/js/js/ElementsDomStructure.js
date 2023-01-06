@@ -162,6 +162,24 @@ const postsResult = (data) => {
     });
 }
 
+//=================================
+// Ctegories Table HTML Content
+//==================================
+const categoriesResult = (data) => {
+    return data.map((el, index) => {
+        
+        return table.append(`
+            <tr>
+                <td class="text-center"> ${index + 1}</td>
+                <td>
+                    <span class="mx-2">${el}</span>
+                </td>
+                <td style="width:150px">${actionsTableElements(index)}</td>
+            </tr>
+    `)
+    });
+}
+
 //=====================================
 // Actions Table HTML Content
 //=====================================

@@ -2,7 +2,7 @@ include ./../../variables/adminVars
 // Sidebar
 nav#sidebarMenu.collapse.d-lg-block.sidebar.collapse.bg-white
     .position-sticky
-        ul.list-group.list-group-flush.mx-3.mt-4
+        ul.list-group.list-group-flush.mt-4
             each val , index in sidebarMenu
                 if val.type == 'title'
                     li.list-group-item.list-group-item-action.py-3.mt-4
@@ -20,5 +20,5 @@ nav#sidebarMenu.collapse.d-lg-block.sidebar.collapse.bg-white
                                     li.list-group-item.list-group-item-action.p-0
                                         a.d-block.py-2.px-3(href=`${child.link}${indx != 0 && '.html' || ''}`)
                                             span.p-2
-                                                i.fas.fa-angle-right.fas-a.fa-fw.me-3
+                                                i.fas.fa-angle-right.fas-a.fa-fw.me-2
                                                 span= child.name

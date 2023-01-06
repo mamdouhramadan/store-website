@@ -1,0 +1,10 @@
+extends ../../../layouts/adminLayout
+block admin-content
+    +page-title('Categories List','Add New Category')
+
+    //- Start Main Content  
+    +dataTable(['Name','Action']) 
+
+block scripts
+    script.
+        getTableData('products/categories')
