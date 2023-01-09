@@ -1,27 +1,9 @@
 extends ../../../layouts/adminLayout
 block admin-content
-    include ./../../../variables/userRoles
-    +page-title('Users Roles','Add New Role')
+    +page-title('Roles','Add New Role')
     //- Start Main Content   
-    table#data-table(class="table data-table table-striped table-hover")
-        thead.bg-white
-            tr
-                th #[b #]
-                th #[b Role Name]
-                th.text-center #[b Role Slug]
-                th.text-center #[b Role Description]
-                th.text-center #[b Action]
-        tbody
-            each role,index in userRoles
-                tr
-                    td= index + 1
-                    td= role.name
-                    td.text-center= role.slug
-                    td.text-center= role.description
-                    td
-                        .action-btns.d-flex.justify-content-center
-                            a.btn.btn-primary.btn-sm.mx-2(href="/admin/users/roles/edit/"+role._id) Edit
-                            a.btn.btn-danger.btn-sm.mx-2(href="/admin/users/roles/delete/"+role._id) Delete
-block scripts
+    +dataTable(['Role Name', 'Role Slug', 'Role Description', 'Action']) 
+
+block scripts 
     script.
-        getTableData('users-roles')
+        getTableData('roles')

@@ -3,8 +3,8 @@ block admin-content
     +page-title('Categories List','Add New Category')
 
     //- Start Main Content  
-    +dataTable(['Name','Action']) 
+    +dataTable(['Name', 'Description' , 'Action']) 
 
 block scripts
     script.
-        getTableData('products/categories')
+        getTableData('categories')

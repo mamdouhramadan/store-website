@@ -4,3 +4,4 @@
 /.vscode-test/
 /node_modules/
 /public/
+.env

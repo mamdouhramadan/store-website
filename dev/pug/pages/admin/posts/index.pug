@@ -3,9 +3,8 @@ extends ../../../layouts/adminLayout
 block admin-content
     +page-title('Posts List','Add New Post')
     //- Start Main Content   
-    +dataTable(['Title', 'content', 'tags','comments', 'Action']) 
+    +dataTable(['Title', 'Content','Tags','Categories','Action']) 
 
 block scripts
-    script(src="//cdn.quilljs.com/1.3.6/quill.core.js")
     script.
         getTableData('posts')
