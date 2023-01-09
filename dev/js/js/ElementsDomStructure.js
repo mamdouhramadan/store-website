@@ -2,11 +2,11 @@ const table = $('.dataTable tbody')
 //=========================
 // Products Table HTML
 //=========================
-const productResult = (data) => {
+const productResult = (target, data) => {
     return data.map((el, index) => {
-        const { title, brand, category, price, discountPercentage, rating, thumbnail } = el;
+        const { id, title, brand, category, price, discountPercentage, rating, thumbnail } = el;
         return table.append(`
-        <tr>
+        <tr id="${id}">
             <td class="text-center"> ${index + 1}</td>
             <td>
                 <span class="d-flex align-items-center">
@@ -26,7 +26,7 @@ const productResult = (data) => {
                     ${rating}
                 </span>
             </td>
-            <td>${actionsTableElements(el)}</td>
+            <td>${actionsTableElements(target, id)}</td>
         
         </tr>
     `)
@@ -104,11 +104,11 @@ const singleProductResult = (data) => {
 //=====================================
 // Users Table HTML Content
 //=====================================
-const usersResult = (data) => {
+const usersResult = (target, data) => {
     return data.map((el, index) => {
-        var { firstName, maidenName, lastName, email, phone, birthDate, address, image } = el;
+        var { id, firstName, maidenName, lastName, email, phone, birthDate, address, image } = el;
         return table.append(`
-            <tr>
+            <tr id="${id}">
                 <td class="text-center"> ${index + 1}</td>
                 
                 <td>
@@ -127,7 +127,7 @@ const usersResult = (data) => {
                 <td class="text-center">  ${address.address} </td>
                 
                 <td>
-                    ${actionsTableElements(data)}
+                    ${actionsTableElements(target, id)}
                 </td>
             
             </tr>
@@ -138,17 +138,17 @@ const usersResult = (data) => {
 //============================
 // Posts Table HTML Content
 //============================
-const postsResult = (data) => {
+const postsResult = (target, data) => {
     return data.map((el, index) => {
-        var { title, body, tags, reactions } = el;
+        var { id, title, body, tags, reactions } = el;
         return table.append(`
-            <tr>
+            <tr id="${id}">
                 <td class="text-center"> ${index + 1}</td>
                 <td>
                 <img class="post-img ms-3 rounded-circle" src="https://picsum.photos/50/50" alt="${title}" />
                 <span class="mx-2">${title}</span>
                 </td>
-                <td class="text-center"> ${body.substring(0,50)}</td>
+                <td class="text-center"> ${body.substring(0, 50)}</td>
                 <td class="text-center post-tage"> 
                     ${tags.map(tag => `<span class="badge bg-primary mx-1">${tag}</span>`)}
                  </td>
@@ -156,25 +156,26 @@ const postsResult = (data) => {
                     <i class="fas fa-comment"></i> 
                     <span class="mx-1">${reactions}</span>
                 </td>
-                <td>${actionsTableElements(el)}</td>
+                <td>${actionsTableElements(target, id)}</td>
                 </tr>
     `)
     });
 }
 
+
 //=================================
 // Ctegories Table HTML Content
 //==================================
-const categoriesResult = (data) => {
+const categoriesResult = (target, data) => {
     return data.map((el, index) => {
-        
+
         return table.append(`
-            <tr>
+            <tr id="${index}">
                 <td class="text-center"> ${index + 1}</td>
                 <td>
                     <span class="mx-2">${el}</span>
                 </td>
-                <td style="width:150px">${actionsTableElements(index)}</td>
+                <td style="width:150px">${actionsTableElements(target, index)}</td>
             </tr>
     `)
     });
@@ -183,18 +184,18 @@ const categoriesResult = (data) => {
 //=====================================
 // Actions Table HTML Content
 //=====================================
-const actionsTableElements = (data) => {
+const actionsTableElements = (target, id) => {
     return `
         <div class="d-flex justify-content-center">
-            <button style="font-size:17px;width:35px;height:35px" class="btn px-1" onclick="productDetailes(${data.id})" data-bs-toggle="tooltip" data-bs-placement="top" title="Tooltip on top">
+            <button style="font-size:17px;width:35px;height:35px" class="btn px-1" onclick="productDetailes(${id})" data-bs-toggle="tooltip" data-bs-placement="top" title="Tooltip on top">
                 <ion-icon class="text-info " name="eye"></ion-icon>
             </button>
             
-            <button onclick="alert(${data.id})" style="font-size:17px;width:35px;height:35px" class="btn px-1" data-bs-toggle="tooltip" data-bs-placement="top" title="Tooltip on top">
+            <button onclick="alert(${id})" style="font-size:17px;width:35px;height:35px" class="btn px-1" data-bs-toggle="tooltip" data-bs-placement="top" title="Tooltip on top">
                 <ion-icon class="text-primary " name="create"  data-bs-toggle="tooltip" title="Disabled tooltip"></ion-icon>
             </button>
         
-            <button onclick="alert(${data.id})" style="font-size:17px;width:35px;height:35px" class="btn px-1" data-bs-toggle="tooltip" data-bs-placement="top" title="Tooltip on top">
+            <button onclick="deleteData('${target}',${id})" style="font-size:17px;width:35px;height:35px" class="btn px-1" data-bs-toggle="tooltip" data-bs-placement="top" title="Tooltip on top">
                 <ion-icon class="text-danger " name="close" data-bs-toggle="tooltip" data-bs-placement="top" title="Tooltip on top"></ion-icon>
             </button>
         </div>

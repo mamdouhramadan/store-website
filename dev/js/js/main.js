@@ -3,45 +3,6 @@
 //=============
 var api = 'https://dummyjson.com';
 
-$(document).ready(function () {
-    // getProducts();
-    getCategories();
-})
-
-//=======================
-// Get All Products 
-//=======================
-
-var getProducts = (page = 0) => {
-    const limit = 10;
-    fetch(`${api}/products?limit=${limit}&skip=${limit * page}`)
-        .then(res => res.json())
-        .then(data => setProducts(data.products))
-        .catch(err => console.log(err))
-        .finally(() => $('.preloader').fadeOut(300))
-}
-
-var page = 1;
-const nextPage = () => {
-    getProducts(page);
-    page++;
-    console.log(page)
-}
-
-const prevPage = () => {
-    --page;
-    console.log(page)
-    getProducts(page);
-}
-
-//=========================
-// Table Rsesult HTML
-//=========================
-var setProducts = (data) => {
-    $('.dataTable tbody').html('')
-    data.map((el, index) => $('.data-table').append(`<tbody>${result(el, index)}</tbody>`))
-}
-
 //=======================
 // Get a single product
 //=======================
@@ -68,20 +29,6 @@ const productDetailes = async (id) => {
     console.log('ID: ', id)
 }
 
-//==============================
-// Get all categories
-//==============================
-const getCategories = () => {
-    fetch(`${api}/products/categories`)
-        .then(res => res.json())
-        .then(data => $('.select-category').append(data.map(el => `<option class="" valu="${el}">${el}</option>`)))
-}
-
-//==============================
-// Get products of a category
-//==============================           
-//fetch(`${api}/products/category/smartphones`).then(res => res.json()).then((data) => console.log(data));
-
 //=======================
 // Get Table Data 
 //=======================
@@ -94,11 +41,11 @@ var getTableData = (target) => {
             // store the data target in a variable
             var result = data[target];
             if (target == 'users') {
-                usersResult(result)
+                usersResult(target, result)
             } else if (target == 'products') {
-                productResult(result)
+                productResult(target, result)
             } else if (target == 'posts') {
-                postsResult(result)
+                postsResult(target, result)
             } else if (target == 'products/categories') {
                 // we used the (data) instead of (result) because the result is an array 
                 categoriesResult(data)
@@ -112,4 +59,58 @@ var getTableData = (target) => {
             $('#data-table').DataTable()
             $('.preloader').fadeOut(300);
         })
+}
+
+//=======================================
+// Delete Data based on ID and target
+//=======================================
+const deleteData = (target, id) => {
+    console.log('id: ', id)
+    // sweet alert
+    Swal.fire({
+        title: 'Are you sure?',
+        text: "You won't be able to revert this!",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Yes, delete it!'
+    }).then((result) => {
+        if (result.isConfirmed) {
+            console.log('yes delete it')
+            // send the request to the api
+            fetch(`${api}/${target}/${id}`, {
+                method: 'DELETE'
+            })
+                .then(res => res.json())
+                .then(data => {
+                    if (data.isDeleted) {
+                        $(`tr#${id}`).fadeOut(300, () => $(`#${id}`).remove())
+                        // jquery toast
+                        $.toast({
+                            heading: 'Success',
+                            text: 'Data deleted successfully',
+                            showHideTransition: 'slide',
+                            icon: 'success',
+                            position: 'top-right',
+                            hideAfter: 3000
+                        })
+                        // update data table after delete
+                        $('#data-table').DataTable()
+                    }else{
+                        $.toast({
+                            heading: 'Error',
+                            text: 'Something went wrong',
+                            showHideTransition: 'slide',
+                            icon: 'error',
+                            position: 'top-right',
+                            hideAfter: 3000
+                        })
+                        console.log('Something went wrong')
+                    }
+                })
+                .catch(err => console.log(err));
+        }
+    })
+
 }
